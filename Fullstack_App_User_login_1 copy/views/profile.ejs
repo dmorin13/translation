@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+    <title> Talking </title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Local</h3>
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %>
+            </div>
+        </div>
+
+        <div> 
+          <h3>User Choose Preferred Language </h3>
+          <ul class="messages">
+            <% for(var i=0; i<messages.length; i++) {%>
+              <li class="message">
+                <span><%= messages[i].msg %></span>
+              </li>
+            <% } %>
+            </ul> 
+        </div>
+
+        <div> 
+          <h2>User inputs Text in Preferred Language</h2>
+          <% if (user.local.email) { %>
+            <form action="/messages" method="POST">
+              <input type="text" value="<%= user.local.email %>" name="name">
+              <input type="text" placeholder="message" name="msg">
+              <button type="submit">Translate!<i class="fa-solid fa-language"></i></button>
+            </form>
+        </div>
+        <% } %>
+       
+        <div class="col-sm-6">
+          <h3>Display Message user inputted in Preferred Language Here</h3>
+          <ul class="messages">
+          <% for(var i=0; i<messages.length; i++) {%>
+            <li class="message">
+               <!-- User is able to 'star' & 'save' their frequently used translations to reference later  -->
+              <span><%= messages[i].msg %></span>
+              <span><%= messages[i].star %></span>
+              <span><i class="fa-solid fa-star-sharp"></i></span>
+            </li>
+          <% } %
+        </div>
+
+        <div class="col-sm-6">
+          <h3>Display Translated Message in English Here</h3>
+          <ul class="messages">
+          <% for(var i=0; i<messages.length; i++) {%>
+            <li class="message">
+              <span><%= messages[i].msg %></span>
+              <span><%= messages[i].star %></span>
+              <span><i class="fa-solid fa-star-sharp"></i></span>
+            </li>
+          <% } %
+        </div>
+        
+        <div>
+          <h2>User can edit the translated text in their preferred language and view the updated translation in real time </h2>
+          <% if (user.local.email) { %>
+            <form action="/messages" method="POST">
+              <input type="text" value="<%= user.local.email %>" name="name">
+              <input type="text" placeholder="message" name="msg">
+              <button type="submit">Submit</button>
+            </form>
+          
+          <% } %>
+        </div>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
