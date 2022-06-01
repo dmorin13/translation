@@ -1,0 +1,18 @@
+1. Access to more than one user or simulate of different user roles
+2. Persist user profile information somewhere or simulate user language preference
+3. Invoke the translation API on message read
+
+Questions:
+ - What do we need to invoke the translation API
+ - Simplest way to simulate profile/role information
+
+ Create - Parents can add comments 
+ Read   - We'll satisfy reads by modifying the message text on database read
+ Update - Already implemented in the thumbs-up logic; maybe we can modify it?
+ Delete - Delete messages
+
+
+List of features (codenames)
+- translation
+- parent comments
+
