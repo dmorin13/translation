@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+    <title>School Assembly: Teachers</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="page-header text-center">
+        <h1></span> Teacher Profile Page </h1>
+        <a href="/logout" class="btn btn-default btn-sm logout">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        
+
+        <div class="message-input">
+          <h2 class="header">Add a Message/Announcement</h2>
+       <% if (user.local.email) { %>
+            <form  class="message-input" action="/teacher_messages" method="POST">
+            <!-- <input class="role-input" type="text" value="teacher" name="role" placeholder="role"> -->
+            <img class= "multilingual"src="img/translation.gif" alt="translation">
+            <div class="chalkboard_"> 
+              <img class= "chalkboard" src="img/chalkboard.jpeg" alt="chalkboard">
+              <input type="text" class="_message"  name="msg" placeholder="Message" >
+              <input class="name-input teacher-name" type="text" value="<%= user.local.email %>" name="name" placeholder="Ms.Morin">
+            </div>
+            <button class="btn btn-default btn-sm submit" type="submit">Submit</button>
+          </form>
+        </div>
+        <% } %>
+      
+        
+        <div class="col-sm-6">
+          <h3>Announcements </h3>
+          
+          <ul class="messages">
+          <% for(var i=0; i<messages.length; i++) {%>
+            <!-- Style the message differently when it's been marked read -->
+            <li id="<%= messages[i]._id %>" class="message">
+              <span>[<%= messages[i].role %>]</span>
+              <span><%= messages[i].name %></span>
+              <br/>
+              <span><%= messages[i].msg %></span>
+             
+              <%#allow teacher to view if message has been read by parents%>
+
+              <% if (messages[i].read) { %> 
+                <span><i style="color: green" class="fa fa-check-square-o" aria-hidden="true"></i></span>
+              <% } else { %> 
+                <span><button class="message-read" data-id="<%= messages[i]._id %>"><i class="fa fa-check-square-o" aria-hidden="true"></i></button></span>
+              <% } %> 
+              
+              <span><button class="message-delete" data-id="<%= messages[i]._id %>"> 🚫</button></span>
+            </li>
+          <% } %> 
+          </ul>
+        
+        </div>
+
+        <!-- display Parents comments for teacher to view   -->
+      
+      </div>
+      <div class="row" hidden>
+        <div class="col-sm-6">
+          <div class="well">
+            <h3><span class="fa fa-user"></span> Local</h3>
+
+            <% if (user.local.email) { %>
+                <p>
+                    <strong>id</strong>: <%= user._id %><br>
+                    <strong>email</strong>: <%= user.local.email %><br>
+                    <strong>password</strong>: <%= user.local.password %>
+                </p>
+
+                <a href="/unlink/local" class="btn btn-default">Unlink</a>
+            <% } else { %>
+                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
+
+<!-- ///////////////////////// -->
+
+<% /* %>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h2></span> Teacher's Profile Page</h2>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        LOCAL INFORMATION 
+        <div class="col-sm-6 well" hidden>
+            <div class="well" hidden>
+                <h3><span class="fa fa-user"></span> Local</h3>
+
+                <%# if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%# user._id %><br>
+                        <strong>email</strong>: <%# user.local.email %><br>
+                        <strong>password</strong>: <%# user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <%#} else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <%# } %>
+
+            </div>
+        </div>
+
+        make it so only teacher can edit/ delete the message posted ? 
+        <h2>Teacher Inputs a message/announcement</h2>
+        <img src="imgs/chalkboard.jpeg"  alt=" chalkboard">
+        <%# if (user.local.email) { %>
+          <form action="/messages" method="POST">
+            <input type="text" value="<%# user.local.email %>" name="name">
+            <input type="text" placeholder="message" name="msg">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <%# } %>
+
+        <div class="col-sm-6">
+         parents can read and react with a thumbs up to the message 
+          <h3>Teacher can View Parents Responses/Comments</h3>
+          <ul class="messages">
+          <%# for(var i=0; i<messages.length; i++) {%>
+            <li class="message">
+              <span><%# messages[i].name %></span>
+              <span><%# messages[i].msg %></span>
+              <span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+            </li>
+          <%# } %>
+          </ul>
+      </div> <%# */ %>
+
+<script src="main.js"></script>
+
+</body>
+</html>
+<% */ %>

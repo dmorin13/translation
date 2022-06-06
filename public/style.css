@@ -1,0 +1,192 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  background-color: rgb(224, 238, 243);
+  
+}
+label{
+ color: black;
+}
+.login{
+  background-color: rgb(224, 238, 243);
+}
+img{
+  height: 160px;
+}
+
+#tMessage{
+  /* border: 2px solid rgb(249, 246, 249); */
+  padding: .5em;
+  color: rgb(248, 248, 248);
+  /* background-color:beige; */
+  font-weight: bold;
+  font-size: 20px;
+  /* border-radius: 20px; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.teacher-name{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* h1{
+  font-size: 20px;
+  color: whitesmoke;
+} */
+
+.well{
+  display: none;
+}
+
+.jumbotron {
+background-image: url(/img/chalkboard.jpeg);
+background-size: contain;
+background-repeat: no-repeat;
+background-color: rgb(224, 238, 243);
+/* color: whitesmoke; */
+font-size: 20px;
+}
+.color{
+  font-size: 30px;
+  color: whitesmoke; 
+  width: 800px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  margin-left: 10px;
+}
+p, form{
+  color: white;
+  /* font-style: bold; */
+  font-weight: bold;
+}
+.home{
+display: inline-block;
+width: 200px;
+border: 2px solid lightblue;
+padding: 10px;
+border-radius: 20px;
+background-color: #edede8;
+text-align: center;
+}
+.sign-up{
+  display: inline-block;
+  width: 200px;
+  border: 2px solid lightblue;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #edede8;
+  text-align: center;
+}
+.teacher{
+ height:200px;
+ border-radius: 30px;
+}
+.apple{
+  height: 100px;
+  border-radius: 50px;
+}
+
+.black{
+  color: black;
+}
+.logout{
+  background-color: rgb(216, 71, 71);
+  width: 139px;
+  text-align: center;
+  display: inline-block
+}
+.multilingual{
+  margin-left: 140px;
+ border-radius: 40px;
+ margin-bottom: 10px;
+}
+
+.message-delete{
+  border-radius: 50px;
+  border: 2px red;
+}
+/* .message-read{
+background-color: yellow;
+} */
+
+.message-translate{
+  background-color: rgb(235, 241, 139);
+  border-radius: 20px;
+}
+._message{
+  width: 400px;
+  height: 100px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-radius: 20px;
+}
+.parent-comment{
+  width: 200px;
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-radius: 20px;
+}
+
+.submit{
+  background-color: rgb(156, 231, 45);
+  border-radius: 20px;
+}
+li{
+  margin-bottom: 10px;
+  font-size: 20px;
+  border: 2px solid black;
+  
+}
+
+.message-input{
+    margin-right:400px;
+    margin-left:130px;
+    border-radius: 10px;
+} 
+.role-input{
+  margin-right:50px ;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+.name-input{
+  border-radius: 10px;
+}
+.header{
+  margin-bottom: 10px;
+  margin-bottom: 10px;
+  width: 400px;
+  margin-left: 150px
+}
+.page-header{
+  width: 600px;
+  margin-left: 200px;
+}
+.chalkboard{
+  width: 100%;
+  height: 300px;
+  position: relative;
+  border-radius: 10px;
+ 
+}
+
+.chalkboard_{
+  position: relative;
+  text-align: center;
+}
+
+.signup{
+  color:black
+}
+/* .row, .message-input{
+  width: 300px;
+  display: inline-block;
+  border: 2px solid black;
+} */

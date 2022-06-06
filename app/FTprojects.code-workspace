@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"name": "Fullstack_App_User_login_1",
+			"path": "../../Fullstack_App_User_login_1"
+		},
+		{
+			"name": "Full_Stack_App_User_login_2",
+			"path": "../../Full_Stack_App_User_login_2"
+		},
+		{
+			"name": "Personal Express",
+			"path": "../../Personal Express"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"terminal.integrated.fontSize": 14
+	}
+}
