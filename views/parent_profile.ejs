@@ -6,64 +6,80 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="green">
 <div class="container">
 
     <div class="page-header text-center">
-        <h1></span> Parent Profile Page /Perfil de Accesso Para Padres y Familias</h1>
-        <a href="/logout" class="btn btn-default btn-sm logout">Logout/Cerrar Sessión</a>
+        <h1></span> ¡Bienvedios Padres y Familias! 🌎 👨‍👩‍👧‍👦  </h1>
+        <a href="/logout" class="btn btn-default btn-sm logout">Cerrar Sessión</a>
     </div>
 
     <div class="row">
-      <div class="col-sm-6">
-        <h2>Translated Announcement/ Mensaje Traducido </h2>
-        <img class="multilingual" src="img/translation.gif" alt="translation">
-      </div>
-      <div class="col-sm-6">
-      </div>
-    </div>  
-
-    <div class="row">
+       <div class="col-sm-6"> 
+        <!-- <h2>Translated Announcement/ Mensaje Traducido </h2> -->
+        <!-- <img class="multilingual" src="img/translation.gif" alt="translation">-->
+      </div> 
+    <div class="col-sm-6">
+    </div> 
+      <!-- <img class="multilingual" src="img/translation.gif" alt="translation"> -->
+    </div>   
+    
+    <div class="row main-row">
       <div class="col-sm-6">
         <div class="chalkboard_">
           <img class="chalkboard" src="img/chalkboard.jpeg" alt="chalkboard">
-          <p id="tMessage" class="tMessage">Translated text will appear here</p>
+          <p id="tMessage" class="tMessage">Pizarra de Anuncios</p>
         </div>
       </div>
 
-      <div class="col-sm-6">
-        <h3>Announcements/Anuncios: </h3>
+      <div class="col-sm-6 cells">
+        <h3 class="announcements">Announcements/Anuncios: 📢  </h3>
         <ul>
         <% for(var i=0; i<messages.length; i++) {%>
           <!-- Style the message differently when it's been marked read -->
           <li id="<%= messages[i]._id %>" class="message">
-            <span>[<%= messages[i].role %>]</span>
-            <span><%= messages[i].name %></span>
-            <span><%= messages[i].msg %></span>
+            <%#'role' (teacher/ parent) doesn't display in the DOM %>
+            <span><%= messages[i].role %></span>
+            <p class="teacher-msg"><%= messages[i].msg %> <span class="poster-name"> -- <%=messages[i].name %></span></p>
             <span><%= messages[i].readByCount%></span>
             <br/>
             <button class="message-translate" data-id="<%= messages[i]._id %>">Español 🗣️ </button> 
-            <button class="add-comment" data-id="<%= messages[i]._id %>">Comentar/Responder 💬 </button> 
-            <!-- Make it so only the user can edit/ delete the comments posted? -->
-            <!-- All users can view the comments/ responses posted or Only teacher? -->
 
-            
-            <!-- <div class="message-input">
-              <form class="message-input" action="/parent_messages" method="POST">
-                <input class="name-input" type="text" value="<%# user.local.email %>" name="name" placeholder="name">
-                <input type="text" class="parent-comment"  name="msg" placeholder="Message" >
-                <button class="btn btn-default btn-sm submit" type="submit">Enviar 📩 </button>
-                    make it so parents can only delete their own comments  
-                <span><button class="message-delete" data-id="<%# messages[i]._id %>"> 🚫</button></span>
-              </form>
-            </div> -->
+            <button class="message-translate-PT" data-id="<%= messages[i]._id %>">Português 🗣️ </button> 
+
+            <button class="message-translate-HT" data-id="<%= messages[i]._id %>">Kreyòl ayisyen 🗣️ </button>
+
+            <button class="message-translate-SO" data-id="<%= messages[i]._id %>">Somaliyeed 🗣️ </button> 
             
             <% if (messages[i].read) { %> 
-              <span><i style="color: green" class="fa fa-check-square-o" aria-hidden="true"></i></span>
-            <% } else { %> 
-              <span><button class="message-read" data-id="<%= messages[i]._id %>"><i class="fa fa-check-square-o" aria-hidden="true"></i></button></span>
-            <% } %> 
+              <span><i style="color: green" class="fa fa-check-square-o" id="leftM" aria-hidden="true"></i></span>
+              <% } else { %> 
+              <span><i class="fa fa-check-square-o message-read leftM" id="leftM" data-id="<%= messages[i]._id %>" aria-hidden="true"></i></span>
+              <% } %>
 
+            <button id ="pCommenCenter" class="add-comment" type="button" data-id="<%= messages[i]._id %>">Comentar/Responder 💬 </button> 
+            <!-- Make it so only the user can edit/ delete the comments posted? -->
+            <!-- All users can view the comments/ responses posted or Only teacher? -->
+        
+            
+            <div class="message-input hide-comment p-comments">
+              <!-- <form action="/comments" method="POST"> -->
+                <!-- value="<%#currentUser.local.email %>" -->
+                <input class="name-input " type="text"  name="name" placeholder="Nombre"/>
+                <input  class="input-box" type="text" class="parent-comment " name="msg" placeholder="Mensaje"/>
+
+                <input type="hidden" name="user_id" value="<%=currentUser._id%>"> 
+                <input type="" name="langPref" class="langValue" value="" required/> 
+
+                <input type="hidden" name="announcementId" value="<%=messages[i]._id%>"/> 
+                <button class="btn btn-default btn-sm submit sbmtComment" data-id="<%= messages[i]._id %>" type="submit">Enviar 📩 </button>
+              
+                <!-- //create a nested loop for parent comment to display on the DOM when "Enviar" button is clicked? " -->
+                    <!-- make it so parents can only delete their own comments   -->
+                <span><button class="message-delete" data-id="<%=messages[i]._id %>">🚫</button></span>
+             
+              <!-- </form>  -->
+            </div> 
           </li>
         <% } %> 
         </ul<> 
@@ -72,35 +88,29 @@
 
     <div class="row">
       <div class="col-sm-6">
-        <img style="width: 250px; height:200px" class= "multilingual"src="img/family_1.jpg" alt="family reading together">
+        <!-- <img style="width: 250px; height:200px" class= "multilingual"src="img/family_1.jpg" alt="family reading together"> -->
       </div>
       <div class="col-sm-6">
       </div>
     </div>  
+    
+<div class="resource">
+  <p class="pregunta">¿Le gustaría solicitar servicios de traducción en vivo? <span> 🗣️ </span></p>
+  <p>Comuníquese con la oficina de estudiantes del idioma inglés de las Escuelas Públicas de Boston</p>
+  <p id="phone">(617) 635-1565 <span> 📞 </span></p> 
+  <p><a href="mailto:translations@bostonpublicschools.org">translations@bostonpublicschools.org <span> 📩</span></a></p>
+  <p><a href="mailto:interpretations@bostonpublicschools.org">interpretations@bostonpublicschools.org  <span> 📩</span></a></p>
+  
+ 
+<div class="resource-buttons">
+ <button class="message-translate-PT" >Português 🗣️ </button> 
 
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="well">
-          <h3><span class="fa fa-user"></span> Local</h3>
+  <button class="message-translate-HT">Kreyòl ayisyen 🗣️ </button>
 
-          <% if (user.local.email) { %>
-              <p>
-                  <strong>id</strong>: <%= user._id %><br>
-                  <strong>email</strong>: <%= user.local.email %><br>
-                  <strong>password</strong>: <%= user.local.password %>
-              </p>
-
-              <a href="/unlink/local" class="btn btn-default">Unlink</a>
-          <% } else { %>
-              <a href="/connect/local" class="btn btn-default">Connect Local</a>
-          <% } %>
-        </div>
-      </div>
-
-    </div>
-
+  <button class="message-translate-SO">Somaliyeed 🗣️ </button>  
 </div>
-
+</div>
+<img style="width: 250px; height:200px" class= "multilingual"src="img/family_1.jpg" alt="family reading together">
 <script src="main.js"></script>
 
 </body>

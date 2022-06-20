@@ -1,8 +1,15 @@
 body{
-  padding-top:80px;
+  padding-top:40px;
   word-wrap:break-word;
   background-color: rgb(224, 238, 243);
+  font-family: initial;
   
+}
+*{
+  font-family: initial;
+}
+#green{
+  background-color: #e7f8eb;
 }
 label{
  color: black;
@@ -26,6 +33,7 @@ img{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-family: initial;
 }
 
 .teacher-name{
@@ -33,13 +41,18 @@ img{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  /* height: 37px;
+  width: 132px; */
 }
 
 
-/* h1{
-  font-size: 20px;
-  color: whitesmoke;
-} */
+ h1{
+  /* font-size: 20px;
+  color: whitesmoke; */
+  margin-left: 15%;
+  width: 117%;
+  padding: 15px;
+}
 
 .well{
   display: none;
@@ -58,13 +71,17 @@ font-size: 20px;
   color: whitesmoke; 
   width: 800px;
   margin-top: 0%;
-  margin-bottom: 0%;
-  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-left: 6px;
 }
 p, form{
   color: white;
   /* font-style: bold; */
   font-weight: bold;
+}
+
+#pCommenCenter{
+  margin-left: 156px;
 }
 .home{
 display: inline-block;
@@ -100,26 +117,87 @@ text-align: center;
   background-color: rgb(216, 71, 71);
   width: 139px;
   text-align: center;
-  display: inline-block
+  display: inline-block;
+  border-radius: 10px;
+  transform: scale(1.5);
+  margin-left: 40%;
 }
+
 .multilingual{
   margin-left: 140px;
  border-radius: 40px;
  margin-bottom: 10px;
+ transform: scale(1.5);
 }
 
+h1{
+  font-family: initial;
+}
 .message-delete{
   border-radius: 50px;
   border: 2px red;
+  margin-right: 10px;
+  
+}
+.comment-delete{
+  border-radius: 50px;
 }
 /* .message-read{
 background-color: yellow;
 } */
 
-.message-translate{
+.message-translate,.message-translate-PT, .message-translate-HT,.message-translate-SO{
   background-color: rgb(235, 241, 139);
   border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  /* margin-left: 200px; */
 }
+
+
+.message-translate{
+  background-color: rgb(235, 241, 139);
+  margin-left: 200px;
+}
+
+.resource-buttons{
+  display: inline-block;
+  width: 385px;
+  margin-bottom: 10px;
+  font-family: initial;
+}
+.resource-buttons>button{
+  display: inline;
+  margin:0%;
+}
+
+#leftM{
+  margin-left: 241px;
+}
+
+.teacher-msg{
+  color: black;
+}
+.poster-name{
+color: red;
+font-family: ui-rounded;
+}
+.message-translate-PT{
+  background-color: rgb(227, 88, 83);
+  margin-left: 190px;
+}
+
+.message-translate-HT{
+  background-color: rgb(67, 152, 85);
+  margin-left: 180px;
+}
+
+.message-translate-SO{
+  background-color: rgb(158, 103, 231);
+  margin-left: 190px;
+}
+
 ._message{
   width: 400px;
   height: 100px;
@@ -128,6 +206,7 @@ background-color: yellow;
   border-radius: 20px;
 }
 .parent-comment{
+
   width: 200px;
   height: 50px;
   margin-top: 10px;
@@ -135,21 +214,52 @@ background-color: yellow;
   border-radius: 20px;
 }
 
+.view-comment{
+  margin-bottom: 5px;
+  border-radius: 20px;
+}
+.sbmtComment{
+  margin-right: 10px;
+}
 .submit{
   background-color: rgb(156, 231, 45);
   border-radius: 20px;
 }
+ul{
+  list-style-type: none;
+}
 li{
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   font-size: 20px;
   border: 2px solid black;
+  text-decoration: none;
+  border-radius:10px;
+  padding: 10px;
   
+}
+.add-comment{
+  border-radius:10px;
+  margin-bottom: 3%;
+  display: block;
+  margin-left: 105px;
+  margin-top: 30px;
+}
+.user{
+  font-style: italic;
+  font-family: ui-rounded;
+  color: black;
+}
+
+
+#replyComment{
+  border-radius: 10px;
 }
 
 .message-input{
-    margin-right:400px;
-    margin-left:130px;
+    /* margin-right:400px;
+    margin-left:130px; */
     border-radius: 10px;
+    display: inline;
 } 
 .role-input{
   margin-right:50px ;
@@ -158,6 +268,7 @@ li{
 }
 .name-input{
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 .header{
   margin-bottom: 10px;
@@ -180,6 +291,7 @@ li{
 .chalkboard_{
   position: relative;
   text-align: center;
+  margin-top: 100px;
 }
 
 .signup{
@@ -190,3 +302,198 @@ li{
   display: inline-block;
   border: 2px solid black;
 } */
+
+.hide-comment {
+  display: none;
+}
+
+form{
+  display: block;
+}
+/* .show {
+  display: block;
+} */
+
+.input-box{
+  width:300px;
+  height: 150px;
+  border-radius: 10px;
+  margin-right:145px;
+  margin-bottom: 10px;
+}
+.resource>p{
+color:black;
+}
+
+.resource{
+  width: 335px;
+  margin-left: 100px;
+  margin-bottom: 100px;
+  font-size: 16px;
+  margin-top: 200px;
+}
+#phone{
+  color: red;
+  margin-left: 81px;
+  margin-bottom: 21px;
+}
+
+.pregunta{
+  font-style: italic;
+  margin-left: -32px;
+  width: 430px;
+}
+
+.teacher-msg{
+  border: 2px solid black;
+  padding-left: 44px;
+  padding-top: 11px;
+  margin: 10px;
+  font-size: 20px;
+  display: block;
+  border-radius:10px;
+  margin-bottom: 0%;
+  font-style: italic;
+}
+.poster-name{
+
+  margin-bottom: 10px;
+  display: block;
+  margin-top: 10px;
+  margin-left: 160px;
+}
+.announcements{
+margin-left: 150px;
+margin-bottom: 20px;
+font-family: initial;
+}
+
+.cells{
+  margin-top:-100px
+}
+
+.main-row{
+  display: inline-block;
+  margin-bottom: -20%;
+
+}
+.page-header{
+  border: none;
+}
+
+.text-center{
+  margin-left: 153px;
+}
+.welcome-image{
+  border-radius: 100px;
+}
+.btn{
+  border-radius: 20px;
+}
+.header-image{
+  width: 53%;
+  height: 106px;
+  margin-left: 254px;
+
+}
+
+#pComments{
+  color: black;
+  font-size: 20px;
+  
+}
+
+.teacher-announcements, .pAnnouncements{
+width:50%;
+font-family: initial;
+}
+
+.teacher-input{
+  width: 100%;
+  margin-left: 16px;
+}
+
+#link{
+  font-size: 18px;
+  color: blue;
+  margin-left: 100px;
+}
+
+.teacherName{
+  position: absolute;
+    top: 24%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tMessage{
+    width: 68%;
+    height: 50%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    top: 42%;
+    position: absolute;
+    transform: translate(-123%, -25%);
+    font-family: initial;
+}
+._btn{
+  border-radius: 20px;
+  position: absolute;
+  top: 87%;
+  position: absolute;
+  transform: translate(350%, 27%);
+}
+
+.pAnn{
+  margin-left: 138px;
+  margin-bottom: 25px;
+}
+.welcome{
+  margin-top: 38px;
+  /* margin-left: 50px; */
+  margin-left: 87px;
+  font-size:60px;
+  color: rgb(84, 163, 84);
+  font-family: ui-rounded;
+}
+.posterName{
+  color: red;
+  font-family: ui-rounded;
+}
+.postA{
+  margin-left: 30px;
+  color: black;
+  font-family: initial;
+}
+
+.fa-check-square-o{
+  margin-left: 200px;
+  margin-right: 10px;
+}
+
+/* #replyCommment{
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+} */
+
+/* input{
+  border-radius: 10px;
+  width: 300px;
+  height: 70px;
+} */
+/* .input-box{
+  width: none;
+  height:none;
+} */
+.container{
+  margin-bottom: 20%;
+}
+.cells{
+  margin-top: -38px;
+}
+
+.langValue{
+  display: none;
+}

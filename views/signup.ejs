@@ -21,7 +21,14 @@
     <form action="/signup" method="post">
         <div class="form-group">
             <label>Name/Nombre</label>
-            <input type="text" class="form-control" name="name">
+            <input type="text" class="form-control nameDisplay" name="name">
+        </div>
+        <div>
+            <label for="role"> I am a :</label>
+            <select name="role"> 
+                <option value="parent"> Parent/Padre</option>
+                <option value="teacher"> Teacher/ Maestra </option>
+            </select>
         </div>
         <div class="form-group">
             <label>Email</label>
@@ -44,4 +51,5 @@
 <img class="apple" src="img/apple.jpg" alt="teacher and student">
 </div>
 </body>
+<script src="main.js"></script>
 </html>

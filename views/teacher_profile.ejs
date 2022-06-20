@@ -7,64 +7,130 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- <pre>
+    <%# JSON.stringify({user, comments, messages}, null, 2) %>
+  </pre> -->
   <div class="container">
 
     <div class="page-header text-center">
-        <h1></span> Teacher Profile Page </h1>
+      <img class= "header-image"src="img/communications.jpg" alt="communications"> 
+      <h1 class="welcome">Welcome <span class="user">Ms.Morin!</span> 🍎</h1>
+        <!-- <h1></span>Teacher Profile Page </h1> -->
         <a href="/logout" class="btn btn-default btn-sm logout">Logout</a>
     </div>
 
+  
     <div class="row">
+      <div class="col-sm-6">
+       
+       <img class="multilingual"src="img/teacher-parent.png" alt="teacher-parent communications"> 
+      </div>
+      <div class="col-sm-6">
+      </div>
+    </div>  
+    <!-- <div class="row main-row">
+      <div class="col-sm-6">
+        <div class="chalkboard_">
+          Display Parent comments for corresponding post 
+          <p id="pComments" class="">Parents Comments Displayed Here</p>
+        </div>
+      </div> -->
 
-        <!-- LOCAL INFORMATION -->
-        
-
-        <div class="message-input">
-          <h2 class="header">Add a Message/Announcement</h2>
+    <div class="col-sm-6">
+        <div class="teacher-input col-sm-6 teacher-announcements">
+          <!-- <h1 class="welcome">Welcome <span class="user">Ms.Morin!</span>🍎</h1> -->
+         
+          <!-- do I need this if conditional?   line 55-->
        <% if (user.local.email) { %>
-            <form  class="message-input" action="/teacher_messages" method="POST">
+            <form class="" action="/teacher_messages" method="POST">
             <!-- <input class="role-input" type="text" value="teacher" name="role" placeholder="role"> -->
-            <img class= "multilingual"src="img/translation.gif" alt="translation">
+           
             <div class="chalkboard_"> 
+              <h2 class="postA">Post an Announcement 📝</h2>
               <img class= "chalkboard" src="img/chalkboard.jpeg" alt="chalkboard">
-              <input type="text" class="_message"  name="msg" placeholder="Message" >
-              <input class="name-input teacher-name" type="text" value="<%= user.local.email %>" name="name" placeholder="Ms.Morin">
+              <input type="text" class="tMessage"  name="msg" placeholder="Message" >
+              <!-- do I need this?  -->
+              <!-- value="<%# user.local.email %>" -->
+              <input class="name-input teacherName" type="text" name="name" placeholder="Ms.Morin">
             </div>
-            <button class="btn btn-default btn-sm submit" type="submit">Submit</button>
+            <button class="_btn btn-default btn-sm submit" type="submit">Submit</button>
           </form>
+          <div class="col-sm-6">
+          </div>
         </div>
         <% } %>
-      
+        </div>
         
-        <div class="col-sm-6">
-          <h3>Announcements </h3>
+        
+        <div class="col-sm-6 pAnnouncements">
+          <h3 class="pAnn"> Previous Announcements 📢 </h3>
           
           <ul class="messages">
           <% for(var i=0; i<messages.length; i++) {%>
+
+            <% const relatedComments= comments.filter((comment) => comment.teacherPostId === messages[i]._id.toString())%>
+              <%console.log({ msg: 'logging related Comments', relatedComments, comments})%>
+        
             <!-- Style the message differently when it's been marked read -->
             <li id="<%= messages[i]._id %>" class="message">
-              <span>[<%= messages[i].role %>]</span>
-              <span><%= messages[i].name %></span>
+              <!-- role not visible in DOM  -->
+              <span><%= messages[i].role %></span>
+              <!-- <span><%# messages[i].name %></span> -->
               <br/>
-              <span><%= messages[i].msg %></span>
+              <span class="teacher-msg"><%= messages[i].msg %> -- Ms.Morin</span>
+            
              
               <%#allow teacher to view if message has been read by parents%>
 
               <% if (messages[i].read) { %> 
-                <span><i style="color: green" class="fa fa-check-square-o" aria-hidden="true"></i></span>
+                <span><i style="color: green"; class="fa fa-check-square-o" aria-hidden="true"></i></span>
               <% } else { %> 
-                <span><button class="message-read" data-id="<%= messages[i]._id %>"><i class="fa fa-check-square-o" aria-hidden="true"></i></button></span>
+                <span><i data-id="<%= messages[i]._id %>" class="fa fa-check-square-o message-read" aria-hidden="true"></i></span>
               <% } %> 
               
               <span><button class="message-delete" data-id="<%= messages[i]._id %>"> 🚫</button></span>
+            <!-- // button must be inside a form tag   -->
+            <!-- toggle class= hide-comment change to mirror teacher profile UI -->
+            <button class="view-comment" type="button" data-id="<%=messages[i]._id%>">View Parents Comments 💬 </button> 
+            
+          <!--  use comments[i]._id  instead of messages?-->
+            <!-- // pop up on click, modify for replies-->
+            <!-- <input type="hidden" name="user_id" value="<%#currentUser._id %>">  -->
+            <!-- these should be 'nested' inside the comments section  -->
+            <ul class="hide-comment p-comments">
+              <li> Always Showing DEBUG</li>
+            <% for(let j=0; j < relatedComments.length;j++){%>
+              <li> 
+                <span class="posterName"><%=relatedComments[j].posterName %> :</span> 
+                <span><%=relatedComments[j].commentText["translatedText"]%></span>
+                <!-- <span><%#messages[i].name%></span> -->
+                <form action="" method="">
+                  <!-- value="<%#currentUser.local.email %>" -->
+                    <input class="" id="replyComment" type="text" class="" name="msg" placeholder="Reply"/>
+                    <!-- <input type="hidden" name="user_id" value="<%#currentUser._id %>">  -->
+                    <!-- <input type="hidden" name="announcementId" value="<%#messages[i]._id%>"/>  -->
+                    <!-- <input type="hidden" name="commentId" value="<%#comments[j]._id%>"/>  -->
+                  <button class="btn btn-default btn-sm submit" type="submit">Send 📩 </button>
+                
+                  <!-- //create a nested loop for parent comment to display on the DOM when "Enviar" button is clicked? " -->
+                  <!-- make it so parents can only delete their own comments   -->
+                  <span><button class="comment-delete" data-id="<%=relatedComments[j]._id %>">🚫</button></span>
+                </form>
+              </li>
+            
+            <%}%> 
+            </ul>
+                <!-- change action to "replies"?  -->
+            
             </li>
           <% } %> 
           </ul>
+          <a id="link" href="https://www.bostonpublicschools.org/Page/6919">Request a Live Translator from BPS OELL 🗣️ 📞 </a>
         
         </div>
 
-        <!-- display Parents comments for teacher to view   -->
-      
+        <!-- display Parents comments for teacher to view when comments is "clicked" ->"pop up" -->
+        <!-- <a id="link" href="https://www.bostonpublicschools.org/Page/6919">Request a Live Translator from BPS OELL 🗣️ 📞 </a> -->
       </div>
       <div class="row" hidden>
         <div class="col-sm-6">
@@ -80,7 +146,7 @@
 
                 <a href="/unlink/local" class="btn btn-default">Unlink</a>
             <% } else { %>
-                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <p><a class="link" href="/connect/local" class="btn btn-default">Connect Local</a></p>
             <% } %>
           </div>
         </div>
