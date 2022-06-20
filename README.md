@@ -1,8 +1,8 @@
 # translation
-<h1 align="center">Teacher Talk</h1>
+<h1 align="center">School Asssembly 🎒</h1>
 <h3 align="center">An app designed to faciliate two way communication between educators and multilingual families</h3>
 
-- 🔭 I’m currently working on [Teacher Talk an app to facilaite multilingual communication between ESL familes and teachers](https://github.com/dmorin13)
+- 🔭 I’m currently working on [School Assembly an app to facilaite multilingual communication between ESL familes and teachers](https://github.com/dmorin13)
 
 - 👯 I’m looking to collaborate on **JavaScript and CSS/bootstrap front end projects!**
 
