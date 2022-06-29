@@ -140,12 +140,6 @@ Array.from(translateBtnSO).forEach(function (element) {
   element.addEventListener("click", function () {
     const id = element.getAttribute("data-id");
     document.querySelector(".langValue").value = "Somali"
-    //call to the server
-    //search params
-    //string interpolation / template string 
-    //URL: path -query params
-    //endpoint 
-    //sending data to the server along with the request 
     fetch(`translateSO?id=${id}&lang=so`)
       .then((response) => response.json())
       .then((data) => {

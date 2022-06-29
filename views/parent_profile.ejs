@@ -16,12 +16,9 @@
 
     <div class="row">
        <div class="col-sm-6"> 
-        <!-- <h2>Translated Announcement/ Mensaje Traducido </h2> -->
-        <!-- <img class="multilingual" src="img/translation.gif" alt="translation">-->
       </div> 
     <div class="col-sm-6">
     </div> 
-      <!-- <img class="multilingual" src="img/translation.gif" alt="translation"> -->
     </div>   
     
     <div class="row main-row">
@@ -58,13 +55,11 @@
               <% } %>
 
             <button id ="pCommenCenter" class="add-comment" type="button" data-id="<%= messages[i]._id %>">Comentar/Responder 💬 </button> 
-            <!-- Make it so only the user can edit/ delete the comments posted? -->
-            <!-- All users can view the comments/ responses posted or Only teacher? -->
+           
         
             
             <div class="message-input hide-comment p-comments">
-              <!-- <form action="/comments" method="POST"> -->
-                <!-- value="<%#currentUser.local.email %>" -->
+             
                 <input class="name-input " type="text"  name="name" placeholder="Nombre"/>
                 <input  class="input-box" type="text" class="parent-comment " name="msg" placeholder="Mensaje"/>
 
@@ -72,13 +67,8 @@
                 <input type="" name="langPref" class="langValue" value="" required/> 
 
                 <input type="hidden" name="announcementId" value="<%=messages[i]._id%>"/> 
-                <button class="btn btn-default btn-sm submit sbmtComment" data-id="<%= messages[i]._id %>" type="submit">Enviar 📩 </button>
-              
-                <!-- //create a nested loop for parent comment to display on the DOM when "Enviar" button is clicked? " -->
-                    <!-- make it so parents can only delete their own comments   -->
+                <button class="btn btn-default btn-sm submit sbmtComment" data-id="<%= messages[i]._id %>" type="submit">Enviar 📩 </button>   
                 <span><button class="message-delete" data-id="<%=messages[i]._id %>">🚫</button></span>
-             
-              <!-- </form>  -->
             </div> 
           </li>
         <% } %> 
@@ -88,7 +78,6 @@
 
     <div class="row">
       <div class="col-sm-6">
-        <!-- <img style="width: 250px; height:200px" class= "multilingual"src="img/family_1.jpg" alt="family reading together"> -->
       </div>
       <div class="col-sm-6">
       </div>
@@ -115,80 +104,3 @@
 
 </body>
 </html>
-
-<!-- ///////////////// -->
-<% /* %>
-<!doctype html>
-<html>
-<head>
-    <title>School Assembly: Families</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="container">
-
-    <div class="page-header text-center">
-        <h1> Parent Profile Page/ Perfil de Accesso Para Padres y Familias</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-    </div>
-
-    <div class="row">
-
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6" hidden>
-            <div class="well" hidden>
-                <h3><span class="fa fa-user"></span> Local</h3>
-
-                <%# if (user.local.email) { %>
-                    <p>
-                        <strong>id</strong>: <%# user._id %><br>
-                        <strong>email</strong>: <%# user.local.email %><br>
-                        <strong>password</strong>: <%# user.local.password %>
-                    </p>
-
-                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
-                <%# } else { %>
-                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                <%# } %>
-
-            </div>
-        </div>
-
-        <div class="col-sm-6">
-          <!-- parents can read and react with a checkmark to the message  -->
-          <h3>Translated Announcement/ Anuncio Traducido</h3>
-          <img src="imgs/chalkboard.jpeg"  alt=" chalkboard">
-          <ul class="messages">
-          <%# for(var i=0; i<messages.length; i++) {%>
-            <li class="message">
-              <span><%# messages[i].name %></span>
-              <span><%# messages[i].msg %></span>
-              <span><%# messages[i].readByCount%></span>
-              <span><i class="fa fa-check-square-o" aria-hidden="true"></i></span>
-            
-            </li>
-          <%# } %>
-          </ul>
-        
-       <!-- make it so only the user can edit/ delete the comments posted ? -->
-       <!-- All users can view the comments/ responses posted  -->
-        <h2>Add a message/Añadir un mensaje o comentario </h2>
-        <%# if (user.local.email) { %>
-          <form action="/messages" method="POST">
-            <input type="text" value="<%# user.local.email %>" name="name">
-            <input type="text" placeholder="message" name="msg">
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-        <%# } %>
-
-
-</div>
-
-<script src="main.js"></script>
-
-</body>
-</html> 
-<% */ %>
